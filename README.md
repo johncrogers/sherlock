@@ -15,6 +15,7 @@ This is a tool to assist determining the routes on which a target front end comp
         - "hint" <String>: Name of the child component you would like to see the potential dependency chains for.
         - "directory" <String>: Name of the app root relative folder to begin search in.
     - Used as a command line tool that will write the JSON results of the function "solve" to a folder.
+      - NOTE: Make sure the current terminal instance is in the root of the application folder.
       - Run: 'node path_to/runner.js <hint> <directory>'
       - Arguments:
         < Same as above. >
