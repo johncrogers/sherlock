@@ -10,7 +10,7 @@ module.exports.buildPageDependencyTrees = function buildPageDependencyTrees(
         children: []
       };
     }
-    pages[tree.name].children.push(tree.child);
+    pages[tree.name].children.push(tree.children);
     if (!pages[tree.name].routeFiles.includes(tree.routeFile)) {
       pages[tree.name].routeFiles.push(tree.routeFile);
     }
