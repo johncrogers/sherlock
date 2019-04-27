@@ -4,8 +4,9 @@
   "description": "A tool for resolving view component to route mapping.",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test-coverage": "node test_coverage_reporter.js"
+    "test": "jest && jest --reporters jest-skipped-reporter && node test_coverage_reporter.js",
+    "test:skipped": "jest --reporters jest-skipped-reporter",
+    "test:files": "node test_coverage_reporter.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/johncrogers/sherlock#readme",
   "devDependencies": {
     "console.table": "^0.10.0",
-    "jest": "^24.7.1"
+    "jest": "^24.7.1",
+    "jest-skipped-reporter": "0.0.4"
   }
 }
