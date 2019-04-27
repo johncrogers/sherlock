@@ -1,5 +1,5 @@
 module.exports.buildGrepResults = function buildGrepResults(commandString) {
-  const grepResult = require("child_process").execSync(commandString, {
+  let grepResult = require("child_process").execSync(commandString, {
     encoding: "utf8"
   });
   grepResult = grepResult.split("\n");
