@@ -1,10 +1,11 @@
 const buildDependencyTrees = require("../buildDependencyTrees");
-const displayHelpText = require("../displayHelpText");
 
 module.exports = (hint, targetDirectory) => {
   if (hint && targetDirectory) {
     return buildDependencyTrees(hint, targetDirectory);
   } else {
-    displayHelpText();
+    console.log(
+      "Sherlock not used properly. Please refer to documentation: https://github.com/johncrogers/sherlock"
+    );
   }
 };
