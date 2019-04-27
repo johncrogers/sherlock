@@ -1,4 +1,4 @@
-module.exports = function buildCommandString(targetComponent, directory) {
+module.exports = function(targetComponent, directory) {
   const queries = require("./queries");
 
   return queries
