@@ -4,7 +4,7 @@
   "description": "A tool for resolving view component to route mapping.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "test-coverage": "node test_coverage_reporter.js"
   },
   "repository": {
