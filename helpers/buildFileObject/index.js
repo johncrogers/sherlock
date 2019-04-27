@@ -1,8 +1,4 @@
-module.exports.buildFileObject = function buildFileObject(
-  match,
-  directoryName,
-  fileName
-) {
+module.exports = (match, directoryName, fileName) => {
   let fileObject = {};
   const fileIsNotNamedIndex = !fileName.includes("index");
   if (fileIsNotNamedIndex) {

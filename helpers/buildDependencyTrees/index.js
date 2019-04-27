@@ -1,11 +1,8 @@
-const { buildPageDependencyTrees } = require("../buildPageDependencyTrees");
-const { buildMatchedFileList } = require("../buildMatchedFileList");
-const { buildNewNode } = require("../buildNewNode");
+const buildPageDependencyTrees = require("../buildPageDependencyTrees");
+const buildMatchedFileList = require("../buildMatchedFileList");
+const buildNewNode = require("../buildNewNode");
 
-module.exports.buildDependencyTrees = function buildDependencyTrees(
-  hint,
-  targetDirectory
-) {
+module.exports = (hint, targetDirectory) => {
   function traverseTrees(
     hint,
     targetDirectory,

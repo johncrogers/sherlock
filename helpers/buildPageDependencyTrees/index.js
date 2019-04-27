@@ -1,6 +1,4 @@
-module.exports.buildPageDependencyTrees = function buildPageDependencyTrees(
-  dependencyTrees
-) {
+module.exports = dependencyTrees => {
   let pages = {};
   dependencyTrees.forEach(tree => {
     if (!pages[tree.name]) {

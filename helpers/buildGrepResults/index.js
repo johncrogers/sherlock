@@ -1,4 +1,4 @@
-module.exports.buildGrepResults = function buildGrepResults(commandString) {
+module.exports = commandString => {
   let grepResult = require("child_process").execSync(commandString, {
     encoding: "utf8"
   });

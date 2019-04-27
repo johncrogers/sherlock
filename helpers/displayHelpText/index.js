@@ -1,4 +1,4 @@
-function displayHelpText() {
+module.exports = () => {
   console.log("What can I solve for you?");
   console.log(
     "Hint: Make sure your terminal is in the application root that you intend to search."
@@ -11,4 +11,4 @@ function displayHelpText() {
   console.log("ex: src");
   console.groupEnd();
   console.groupEnd();
-}
+};

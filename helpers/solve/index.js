@@ -1,7 +1,7 @@
-const { buildDependencyTrees } = require("../buildDependencyTrees");
-const { displayHelpText } = require("../displayHelpText");
+const buildDependencyTrees = require("../buildDependencyTrees");
+const displayHelpText = require("../displayHelpText");
 
-module.exports.solve = function solve(hint, targetDirectory) {
+module.exports = (hint, targetDirectory) => {
   if (hint && targetDirectory) {
     return buildDependencyTrees(hint, targetDirectory);
   } else {

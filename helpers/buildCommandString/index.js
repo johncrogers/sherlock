@@ -1,4 +1,4 @@
-module.exports = function(targetComponent, directory) {
+module.exports = (targetComponent, directory) => {
   const queries = require("./queries");
 
   return queries

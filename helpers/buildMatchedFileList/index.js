@@ -1,12 +1,9 @@
-const { buildCommandString } = require("../buildCommandString");
-const { buildGrepResults } = require("../buildGrepResults");
-const { fileNameIncludesExceptions } = require("../fileNameIncludesExceptions");
-const { buildFileObject } = require("../buildFileObject");
+const buildCommandString = require("../buildCommandString");
+const buildGrepResults = require("../buildGrepResults");
+const fileNameIncludesExceptions = require("../fileNameIncludesExceptions");
+const buildFileObject = require("../buildFileObject");
 
-module.exports.buildMatchedFileList = function buildMatchedFileList(
-  query,
-  directory
-) {
+module.exports = (query, directory) => {
   console.group("Processing matches...");
   let fileList = [];
   const commandString = buildCommandString(query, directory);

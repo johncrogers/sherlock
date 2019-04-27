@@ -1,4 +1,4 @@
-module.exports.buildNewNode = (hint, children, path) => {
+module.exports = (hint, children, path) => {
   let newNode = {
     name: hint,
     children: children

@@ -1,6 +1,4 @@
-module.exports.fileNameIncludesExceptions = function fileNameIncludesExceptions(
-  fileName
-) {
+module.exports = fileName => {
   const exceptions = ["test", "icon.js"];
 
   let flag = false;
