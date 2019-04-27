@@ -1,3 +1,8 @@
+const { buildCommandString } = require("../buildCommandString");
+const { buildGrepResults } = require("../buildGrepResults");
+const { fileNameIncludesExceptions } = require("../fileNameIncludesExceptions");
+const { buildFileObject } = require("../buildFileObject");
+
 module.exports.buildMatchedFileList = function buildMatchedFileList(
   query,
   directory

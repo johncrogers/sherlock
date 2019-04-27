@@ -1,3 +1,5 @@
+const { buildMatchedFileList } = require("../buildMatchedFileList");
+
 module.exports.buildDependencyTrees = function buildDependencyTrees(
   hint,
   targetDirectory,
