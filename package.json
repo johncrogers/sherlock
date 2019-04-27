@@ -1,0 +1,24 @@
+{
+  "name": "sherlock",
+  "version": "0.0.1",
+  "description": "A tool for resolving view component to route mapping.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-coverage": "node test_coverage_reporter.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johncrogers/sherlock.git"
+  },
+  "author": "John Rogers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johncrogers/sherlock/issues"
+  },
+  "homepage": "https://github.com/johncrogers/sherlock#readme",
+  "devDependencies": {
+    "console.table": "^0.10.0",
+    "jest": "^24.7.1"
+  }
+}
