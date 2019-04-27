@@ -1,8 +1,6 @@
 const fileNameIncludesExclusions = require("./index");
 
-test("Returns true when exclusion is found.", () => {
+test("Correctly asserts whether or not fileName is excluded.", () => {
   expect(fileNameIncludesExclusions("test")).toEqual(true);
-});
-test("Returns flase when exclusion is found.", () => {
   expect(fileNameIncludesExclusions("Card")).toEqual(false);
 });
