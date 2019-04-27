@@ -1,8 +1,8 @@
 module.exports = fileName => {
-  const exceptions = ["test", "icon.js"];
+  const exclusions = require("./exclusions");
 
   let flag = false;
-  exceptions.forEach(exception => {
+  exclusions.forEach(exception => {
     if (fileName.includes(exception)) {
       flag = true;
     }
