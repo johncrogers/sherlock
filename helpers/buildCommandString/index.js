@@ -1,11 +1,5 @@
-module.exports.buildCommandString = function buildCommandString(
-  targetComponent,
-  directory
-) {
-  const queries = [
-    targetComponent => `import ${targetComponent} `,
-    targetComponent => `src/components/pages/${targetComponent}/index`
-  ];
+module.exports = function buildCommandString(targetComponent, directory) {
+  const queries = require("./queries");
 
   return queries
     .map(query => {
