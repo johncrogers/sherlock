@@ -1,2 +1,2 @@
-const { solve } = require("./helpers/index.js/index.js.js");
+const { solve } = require("./helpers");
 module.exports.solve = solve;
