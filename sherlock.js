@@ -1,16 +1,9 @@
-function buildCommandString(query, directory) {
-  return [
-    {
-      query: `import ${query} `,
-      directory
-    },
-    {
-      query: `src/components/pages/${query}/index`, // This is used to reach a route file that does not explicitly import the components.
-      directory
-    }
-  ]
-    .map(({ query, directory }) => {
-      return ` grep '${query}' ${directory} -rl ||`;
+const { queries, exceptions } = require("./config");
+
+function buildCommandString(targetComponent, directory) {
+  return queries
+    .map(query => {
+      return ` grep '${query(targetComponent)}' ${directory} -rl ||`;
     })
     .join("")
     .concat(" true");
@@ -18,7 +11,7 @@ function buildCommandString(query, directory) {
 
 function fileNameIncludesExceptions(fileName) {
   let flag = false;
-  ["test", "icon.js"].forEach(exception => {
+  exceptions.forEach(exception => {
     if (fileName.includes(exception)) {
       flag = true;
     }
@@ -126,7 +119,7 @@ function buildPageDependencyTrees(dependencyTrees) {
 function displayHelpText() {
   console.log("What can I solve for you?");
   console.log(
-    "NOTE: Make sure your terminal is in the application root that you intend to search."
+    "Hint: Make sure your terminal is in the application root that you intend to search."
   );
   console.group("Syntax: ( ex: sherlock solve Card src )");
   console.group(`Target Component:`);
