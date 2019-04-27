@@ -1,3 +1,4 @@
+const { buildPageDependencyTrees } = require("../buildPageDependencyTrees");
 const { buildMatchedFileList } = require("../buildMatchedFileList");
 const { buildNewNode } = require("../buildNewNode");
 
