@@ -27,7 +27,7 @@ function fileNameIncludesExceptions(fileName) {
 }
 
 function buildGrepResults(commandString) {
-  let grepResult = require("child_process").execSync(commandString, {
+  const grepResult = require("child_process").execSync(commandString, {
     encoding: "utf8"
   });
   grepResult = grepResult.split("\n");
@@ -39,7 +39,7 @@ function buildGrepResults(commandString) {
 
 function buildFileObject(match, directoryName, fileName) {
   let fileObject = {};
-  let fileIsNotNamedIndex = !fileName.includes("index");
+  const fileIsNotNamedIndex = !fileName.includes("index");
   if (fileIsNotNamedIndex) {
     fileObject.name = fileName.split(".")[0];
   } else {
@@ -55,9 +55,9 @@ function buildMatchedFileList(query, directory) {
   const commandString = buildCommandString(query, directory);
 
   buildGrepResults(commandString).forEach(matchString => {
-    let matchStringPathArray = matchString.split("/");
-    let fileName = matchStringPathArray[matchStringPathArray.length - 1];
-    let directoryName = matchStringPathArray[matchStringPathArray.length - 2];
+    const matchStringPathArray = matchString.split("/");
+    const fileName = matchStringPathArray[matchStringPathArray.length - 1];
+    const directoryName = matchStringPathArray[matchStringPathArray.length - 2];
 
     if (!fileNameIncludesExceptions(fileName)) {
       fileList.push(buildFileObject(matchString, directoryName, fileName));
@@ -77,11 +77,11 @@ function buildDependencyTrees(hint, targetDirectory, childrenTree = null) {
   ) {
     console.group(`Hint: ${hint}`);
     buildMatchedFileList(hint, targetDirectory).forEach(match => {
-      let newNode = {
+      const newNode = {
         name: hint,
         child: childrenTree
       };
-      let isNotRouteFile = !match.name.includes("outes");
+      const isNotRouteFile = !match.name.includes("outes");
       if (isNotRouteFile) {
         console.group(" > Moving to next level...");
         recursiveFunction(
