@@ -22,4 +22,3 @@ This is a tool to assist determining the routes on which a target front end comp
         <!-- - NOTE: Make sure the current terminal instance is in the root of the application folder. -->
         <!-- - Run: 'node path_to/runner.js <hint> <directory>' -->
         <!-- - Arguments: -->
-          <!-- Same as above. -->
