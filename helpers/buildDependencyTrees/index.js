@@ -1,42 +1,37 @@
 const { buildMatchedFileList } = require("../buildMatchedFileList");
+const { buildNewNode } = require("../buildNewNode");
 
 module.exports.buildDependencyTrees = function buildDependencyTrees(
   hint,
-  targetDirectory,
-  childrenTree = null
+  targetDirectory
 ) {
-  function recursiveFunction(
+  function traverseTrees(
     hint,
     targetDirectory,
     dependencyTrees,
-    childrenTree = null
+    children = null
   ) {
     console.group(`Hint: ${hint}`);
     buildMatchedFileList(hint, targetDirectory).forEach(match => {
-      const newNode = {
-        name: hint,
-        child: childrenTree
-      };
       const isNotRouteFile = !match.name.includes("outes");
       if (isNotRouteFile) {
         console.group(" > Moving to next level...");
-        recursiveFunction(
+        traverseTrees(
           match.name,
           targetDirectory,
           dependencyTrees,
-          newNode
+          buildNewNode(hint, children)
         );
         console.groupEnd();
       } else {
         console.log(`Reached route. [ ${match.path} ] Closing...`);
-        newNode.routeFile = match.path;
-        dependencyTrees.push(newNode);
+        dependencyTrees.push(buildNewNode(hint, children, match.path));
       }
     });
     console.groupEnd();
   }
   let dependencyTrees = [];
-  recursiveFunction(hint, targetDirectory, dependencyTrees);
+  traverseTrees(hint, targetDirectory, dependencyTrees);
 
   return { dependencyTrees, pages: buildPageDependencyTrees(dependencyTrees) };
 };
