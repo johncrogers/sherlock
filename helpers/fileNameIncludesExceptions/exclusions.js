@@ -1,1 +1,1 @@
-module.exports = ["test", "icon.js"];
+module.exports = ["node_modules", "test", "icon.js"];

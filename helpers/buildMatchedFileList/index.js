@@ -9,12 +9,15 @@ module.exports = (query, directory) => {
   const commandString = buildCommandString(query, directory);
 
   buildGrepResults(commandString).forEach(matchString => {
-    const matchStringPathArray = matchString.split("/");
-    const fileName = matchStringPathArray[matchStringPathArray.length - 1];
-    const directoryName = matchStringPathArray[matchStringPathArray.length - 2];
+    if (!matchString.includes("node_modules")) {
+      const matchStringPathArray = matchString.split("/");
+      const fileName = matchStringPathArray[matchStringPathArray.length - 1];
+      const directoryName =
+        matchStringPathArray[matchStringPathArray.length - 2];
 
-    if (!fileNameIncludesExceptions(fileName)) {
-      fileList.push(buildFileObject(matchString, directoryName, fileName));
+      if (!fileNameIncludesExceptions(fileName)) {
+        fileList.push(buildFileObject(matchString, directoryName, fileName));
+      }
     }
   });
   console.log("Matches:", JSON.stringify(fileList));
